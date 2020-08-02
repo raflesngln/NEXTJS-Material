@@ -1,0 +1,30 @@
+.MuiDrawer-paperAnchorDockedLeft {
+    border-right: 1px solid rgba(0, 0, 0, 0.12);
+    background: linear-gradient(45deg, #232a44, #232a44);
+}
+.MuiListItemText-root {
+    color: white;
+}
+.MuiSvgIcon-root {
+    color: white;
+}
+
+.MuiToolbar-root {
+    display: flex;
+    position: relative;
+    align-items: center;
+    height: 70px;
+    background: linear-gradient(45deg, #404559, #565e7a,#434e78);
+}
+.MuiIconButton-root .MuiIconButton-label {
+    color: white;
+}
+
+.app-name{
+    min-height: 70px !important;
+    border-bottom: 1px #607D8B solid;
+    background: linear-gradient(45deg, #092d3f, #23495d,#173341);
+}
+.MuiMenu-paper {
+    top: 55px;
+}
