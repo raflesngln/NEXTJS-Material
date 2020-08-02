@@ -1,21 +1,21 @@
-# Next.js example
+# Design and Custom Next.js with Material-ui
 
 ## How to use
 
-Download the example [or clone the repo](https://github.com/mui-org/material-ui):
 
 ```sh
-curl https://codeload.github.com/mui-org/material-ui/tar.gz/master | tar -xz --strip=2  material-ui-master/examples/nextjs
-cd nextjs
+git clone https://github.com/raflesngln/NEXTJS-Material.git
 ```
 
-Install it and run:
+Install it and run it:
 
 ```sh
-npm install
+npm install or yarn install
 npm run dev
+then run
+[localhost:4000](https://localhost:4000/).
 ```
 
-## The idea behind the example
-
-[Next.js](https://github.com/zeit/next.js) is a framework for server-rendered React apps.
+## The project build beyond
+[Material UI](https://material-ui.com/) The Framework front-end for reactjs.
+[NEXT JS](https://nextjs.org/) Its a framework for server-rendered React apps.

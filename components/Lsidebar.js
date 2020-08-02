@@ -29,7 +29,15 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import Paper from '@material-ui/core/Paper';
-
+import ListSubheader from '@material-ui/core/ListSubheader';
+import Collapse from '@material-ui/core/Collapse';
+import DraftsIcon from '@material-ui/icons/Drafts';
+import SendIcon from '@material-ui/icons/Send';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import StarBorder from '@material-ui/icons/StarBorder';
+import ChevronRight from '@material-ui/icons/ChevronRight';
+import { MdKeyboardArrowRight,MdKeyboardArrowDown } from "react-icons/md";
 
 const drawerWidth = 240;
 
@@ -63,6 +71,9 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
+  },
+  nested: {
+    paddingLeft: theme.spacing(4),
   },
   drawerPaper: {
     width: drawerWidth,
@@ -153,6 +164,13 @@ export default function Lsidebar( {children, home} ) {
 
   const handleDrawerClose = () => {
     setOpen(false);
+  };
+  
+
+  const [opensidemenu, setOpensidemenu] = React.useState(false);
+
+  const handleClickSideMenu = () => {
+    setOpensidemenu(!opensidemenu);
   };
 
    // MENU HEADER ACTIONS
@@ -312,6 +330,7 @@ export default function Lsidebar( {children, home} ) {
       </AppBar>
 
       <Drawer
+      style={{}}
         className={classes.drawer}
         variant="persistent"
         anchor="left"
@@ -347,6 +366,96 @@ export default function Lsidebar( {children, home} ) {
             </ListItem>
           ))}
         </List>
+                <List>
+                    <ListItem button onClick={handleClickSideMenu}>
+                      <ListItemIcon>
+                        <InboxIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Report" />
+                      {/* {opensidemenu ? <ExpandLess /> : <ExpandMore />}
+                     */}
+                      {opensidemenu ? <ExpandMore /> : < ChevronRight/>}
+                    </ListItem>
+                    <Collapse in={opensidemenu} timeout="auto" unmountOnExit>
+                      <List component="div" disablePadding>
+                        <ListItem button className={classes.nested}>
+                          <ListItemIcon>
+                            <StarBorder />
+                          </ListItemIcon>
+                          <ListItemText primary="Starred" />
+                        </ListItem>
+                      </List>
+                      <List component="div" disablePadding>
+                        <ListItem button className={classes.nested}>
+                          <ListItemIcon>
+                            <StarBorder />
+                          </ListItemIcon>
+                          <ListItemText primary="Starred" />
+                        </ListItem>
+                      </List>
+                      <List component="div" disablePadding>
+                        <ListItem button className={classes.nested}>
+                          <ListItemIcon>
+                            <StarBorder />
+                          </ListItemIcon>
+                          <ListItemText primary="Starred" />
+                        </ListItem>
+                      </List>
+                      <List component="div" disablePadding>
+                        <ListItem button className={classes.nested}>
+                          <ListItemIcon>
+                            <StarBorder />
+                          </ListItemIcon>
+                          <ListItemText primary="Starred" />
+                        </ListItem>
+                      </List>
+                    </Collapse>
+                  </List>      
+                <List>
+                    <ListItem button onClick={handleClickSideMenu}>
+                      <ListItemIcon>
+                        <InboxIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Settings" />
+                      {/* {opensidemenu ? <ExpandLess /> : <ExpandMore />}
+                     */}
+                      {opensidemenu ? <ExpandMore /> : < ChevronRight/>}
+                    </ListItem>
+                    <Collapse in={opensidemenu} timeout="auto" unmountOnExit>
+                      <List component="div" disablePadding>
+                        <ListItem button className={classes.nested}>
+                          <ListItemIcon>
+                            <StarBorder />
+                          </ListItemIcon>
+                          <ListItemText primary="Starred" />
+                        </ListItem>
+                      </List>
+                      <List component="div" disablePadding>
+                        <ListItem button className={classes.nested}>
+                          <ListItemIcon>
+                            <StarBorder />
+                          </ListItemIcon>
+                          <ListItemText primary="Starred" />
+                        </ListItem>
+                      </List>
+                      <List component="div" disablePadding>
+                        <ListItem button className={classes.nested}>
+                          <ListItemIcon>
+                            <StarBorder />
+                          </ListItemIcon>
+                          <ListItemText primary="Starred" />
+                        </ListItem>
+                      </List>
+                      <List component="div" disablePadding>
+                        <ListItem button className={classes.nested}>
+                          <ListItemIcon>
+                            <StarBorder />
+                          </ListItemIcon>
+                          <ListItemText primary="Starred" />
+                        </ListItem>
+                      </List>
+                    </Collapse>
+                  </List>      
       </Drawer>
 
       {renderMobileMenu}
