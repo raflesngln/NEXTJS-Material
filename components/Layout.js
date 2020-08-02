@@ -25,6 +25,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 
 import Lsidebar from './Lsidebar'
@@ -118,7 +119,9 @@ export default function Layout( {children, home} ) {
           [classes.contentShift]: open,
         })}
       >
+        <div className=" progressloading "><LinearProgress color="secondary" /></div>
         <div className={classes.drawerHeader}>
+          
           {children}
           </div>
       </main>

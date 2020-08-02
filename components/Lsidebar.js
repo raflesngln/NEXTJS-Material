@@ -37,7 +37,9 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 import ChevronRight from '@material-ui/icons/ChevronRight';
-import { MdKeyboardArrowRight,MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowRight,MdKeyboardArrowDown,MdSettings,MdAccountCircle,MdExitToApp } from "react-icons/md";
+import Head from 'next/head'
+import Link from 'next/link'
 
 const drawerWidth = 240;
 
@@ -198,6 +200,8 @@ export default function Lsidebar( {children, home} ) {
    const menuId = 'primary-search-account-menu';
    const renderMenu = (
      <Menu
+     className='headerDropdownMenu'
+        style={{}}
        anchorEl={anchorEl}
        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
        id={menuId}
@@ -206,8 +210,9 @@ export default function Lsidebar( {children, home} ) {
        open={isMenuOpen}
        onClose={handleMenuClose}
      >
-       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+       <MenuItem onClick={handleMenuClose}><MdAccountCircle/>&nbsp;Profile</MenuItem>
+       <MenuItem onClick={handleMenuClose}><MdSettings/>&nbsp; Setting account</MenuItem>
+       <MenuItem onClick={handleMenuClose}><MdExitToApp/>&nbsp; Log Out</MenuItem>
      </Menu>
    );
 
@@ -350,11 +355,13 @@ export default function Lsidebar( {children, home} ) {
 
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
+          {['Dashboard', 'Message', 'Notifications'].map((text, index) => (
+            <Link href="/">
+              <ListItem button key={text}>
+                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            </Link>
           ))}
         </List>
         <Divider />
@@ -423,11 +430,21 @@ export default function Lsidebar( {children, home} ) {
                     </ListItem>
                     <Collapse in={opensidemenu} timeout="auto" unmountOnExit>
                       <List component="div" disablePadding>
+                      <Link href="/users">
                         <ListItem button className={classes.nested}>
                           <ListItemIcon>
                             <StarBorder />
                           </ListItemIcon>
-                          <ListItemText primary="Starred" />
+                          <ListItemText primary="Users" />
+                        </ListItem>
+                        </Link>
+                      </List>
+                      <List component="div" disablePadding>
+                        <ListItem button className={classes.nested}>
+                          <ListItemIcon>
+                            <StarBorder />
+                          </ListItemIcon>
+                          <ListItemText primary="Group Users" />
                         </ListItem>
                       </List>
                       <List component="div" disablePadding>
@@ -435,7 +452,7 @@ export default function Lsidebar( {children, home} ) {
                           <ListItemIcon>
                             <StarBorder />
                           </ListItemIcon>
-                          <ListItemText primary="Starred" />
+                          <ListItemText primary="My Profile" />
                         </ListItem>
                       </List>
                       <List component="div" disablePadding>
@@ -443,15 +460,7 @@ export default function Lsidebar( {children, home} ) {
                           <ListItemIcon>
                             <StarBorder />
                           </ListItemIcon>
-                          <ListItemText primary="Starred" />
-                        </ListItem>
-                      </List>
-                      <List component="div" disablePadding>
-                        <ListItem button className={classes.nested}>
-                          <ListItemIcon>
-                            <StarBorder />
-                          </ListItemIcon>
-                          <ListItemText primary="Starred" />
+                          <ListItemText primary="Logout" />
                         </ListItem>
                       </List>
                     </Collapse>
