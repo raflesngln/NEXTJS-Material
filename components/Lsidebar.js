@@ -159,6 +159,7 @@ export default function Lsidebar( {children, home} ) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
+  const [activeMenu, setActiveMenu] = React.useState(0);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -355,11 +356,11 @@ export default function Lsidebar( {children, home} ) {
 
         <Divider />
         <List>
-          {['Dashboard', 'Message', 'Notifications'].map((text, index) => (
-            <Link href="/">
-              <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
+          {[{id:1,title:'Dashboard',url:'/'},{id:2,title:'Message',url:'/message'}, {id:3,title:'Notifications',url:'/notifications'}].map((text, idx) => (
+            <Link href={text.url}>
+              <ListItem button key={idx} style={{backgroundColor:activeMenu===text.id?'#FF5722':''}}  onClick={()=>setActiveMenu(text.id)}>
+                <ListItemIcon>{idx % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                <ListItemText primary={`${text.title}-${activeMenu}`} />
               </ListItem>
             </Link>
           ))}
@@ -367,7 +368,7 @@ export default function Lsidebar( {children, home} ) {
         <Divider />
         <List>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
+            <ListItem button key={index}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>

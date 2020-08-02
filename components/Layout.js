@@ -114,7 +114,7 @@ export default function Layout( {children, home} ) {
       <Lsidebar/>
 
       <main
-      style={{paddingTop:'100px'}}
+      style={{paddingTop:'100px',backgroundColor:'#edebeb'}}
         className={clsx(classes.content, {
           [classes.contentShift]: open,
         })}

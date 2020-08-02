@@ -20,17 +20,23 @@
 .MuiIconButton-root .MuiIconButton-label {
     color: white;
 }
+.MuiListItem-gutters {
+    border-radius: 6px !important;
+}
 
 .app-name{
     min-height: 70px !important;
     border-bottom: 1px #9e9e9e70 solid;
     background: linear-gradient(45deg, #232a44, #232a44);
 }
+.MenuContentMain{
+    background: #edebeb;
+}
 .MuiMenu-paper {
     top: 55px;
 }
 .MuiDrawer-paperAnchorLeft{
-    width: 262px !important;
+    width: 255px !important;
 }
 
 .MuiAppBar-colorPrimary {
@@ -69,6 +75,12 @@
     position: inherit;
 }
 
+/* active menu */
+.activemenu{
+    background: red !important;
+}
+
+
 /* Let's get this party started */
 ::-webkit-scrollbar {
     width: 7px;
@@ -79,8 +91,8 @@
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
- 
-/* Handle */
+
+/* Handle scroll bar */
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
