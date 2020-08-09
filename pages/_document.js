@@ -15,7 +15,6 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
           <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-
         </Head>
         <body>
           <Main />
@@ -30,7 +29,6 @@ export default class MyDocument extends Document {
 // it's compatible with server-side generation (SSG).
 MyDocument.getInitialProps = async (ctx) => {
   // Resolution order
-  //
   // On the server:
   // 1. app.getInitialProps
   // 2. page.getInitialProps

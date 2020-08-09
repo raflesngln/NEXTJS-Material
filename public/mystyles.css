@@ -9,7 +9,9 @@
 .MuiSvgIcon-root {
     color: white;
 }
-
+.MuiDrawer-docked {
+    background: #edebeb;
+}
 .MuiToolbar-root {
     display: flex;
     position: relative;

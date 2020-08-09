@@ -1,15 +1,11 @@
-import React from 'react';
-import clsx from 'clsx';
-import { fade,makeStyles, useTheme } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import LinearProgress from '@material-ui/core/LinearProgress';
 
-import Lsidebar from './Lsidebar'
-// import Lheader from './Lheader'
+import {fade, makeStyles, useTheme } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
-
 const useStyles = makeStyles((theme) => ({
+  grow: {
+    flexGrow: 1,
+  },
   root: {
     display: 'flex',
   },
@@ -36,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
+  },
+  nested: {
+    paddingLeft: theme.spacing(4),
   },
   drawerPaper: {
     width: drawerWidth,
@@ -64,43 +63,54 @@ const useStyles = makeStyles((theme) => ({
     }),
     marginLeft: 0,
   },
-
+  search: {
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: fade(theme.palette.common.white, 0.15),
+    '&:hover': {
+      backgroundColor: fade(theme.palette.common.white, 0.25),
+    },
+    marginRight: theme.spacing(2),
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(3),
+      width: 'auto',
+    },
+  },
+  searchIcon: {
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inputRoot: {
+    color: 'inherit',
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      width: '20ch',
+    },
+  },
+  sectionDesktop: {
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'flex',
+    },
+  },
+  sectionMobile: {
+    display: 'flex',
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
+  },
 }));
-
-
-export default function Layout( {children, home} ) {
-      const classes = useStyles();
-      const theme = useTheme();
-      const [open, setOpen] = React.useState(true);
-
-        const handleDrawerOpen = () => {
-          setOpen(true);
-        };
-
-        const handleDrawerClose = () => {
-          setOpen(false);
-        };
-      
-// RENDER COMPONENTS
-  return (
-    <>
-    <div className={classes.root}>
-      <CssBaseline />
-      <Lsidebar/>
-
-      <main
-      style={{paddingTop:'100px',backgroundColor:'#edebeb'}}
-        className={clsx(classes.content, {
-          [classes.contentShift]: open,
-        })}
-      >
-        <div className=" progressloading "><LinearProgress color="secondary" /></div>
-        <div className={classes.drawerHeader}>
-          
-          {children}
-          </div>
-      </main>
-    </div>
-    </>
-  );
-}
+export{useStyles}

@@ -5,7 +5,7 @@ import Listdata from './Listdata'
 import Layout from '../../components/Layout'
 
 
-export default function Dashboard() {
+function Dashboard() {
   return (
     <>
     <Layout>
@@ -14,3 +14,6 @@ export default function Dashboard() {
     </>
   );
 }
+
+
+export default Dashboard
